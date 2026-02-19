@@ -1,0 +1,501 @@
+
+/* ===== VARIABLES GLOBALES ===== */
+:root {
+    --primercolor: #ed1c24;          /* Rojo del club, usado en bordes, botones y acentos */
+    --segundocolor: #fff;             /* Blanco, usado en fondos de tarjetas y textos sobre azul */
+    --coloropcionalydeletras: #003366; /* Azul oscuro del club, fondo principal y textos */
+    --letra: 'League Spartan', sans-serif;    /* Tipografía principal del proyecto */
+    --partetrasera: black;            /* Color reservado para fondos traseros si se necesita */
+}
+
+/* Incluye padding y border dentro del tamaño total de cada elemento */
+* { box-sizing: border-box; }
+
+/* Permite que body ocupe al menos toda la pantalla, necesario para empujar el footer al fondo */
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;                                  /* Elimina margen por defecto del navegador */
+    padding: 0;                                 /* Elimina padding por defecto */
+    background-color: var(--coloropcionalydeletras); /* Fondo azul oscuro en toda la página */
+    overflow-x: hidden;                         /* Evita scroll horizontal no deseado */
+    display: flex;                              /* Activa flexbox para organizar header, main, aside y footer en columna */
+    flex-direction: column;                     /* Apila los elementos hijos verticalmente */
+    min-height: 100vh;                          /* Mínimo altura de toda la ventana, para que footer quede al fondo */
+}
+
+/* ===== HEADER ===== */
+header {
+    position: relative;  /* Permite posicionar el escudo con absolute dentro de él */
+    width: 100%;         /* Ocupa todo el ancho de la pantalla */
+    background-color: var(--segundocolor); /* Fondo blanco del header */
+    z-index: 1000;       /* Se mantiene por encima de otros elementos al hacer scroll */
+    
+}
+
+/* Bloque superior azul que contiene las estrellas decorativas */
+.seccion-azul {
+    background-color: var(--coloropcionalydeletras); /* Fondo azul del club */
+    padding: 20px 0 40px; /* Espaciado: 20px arriba, 40px abajo para dar aire a las estrellas */
+    display: flex;         /* Flexbox para centrar el grupo de estrellas */
+    justify-content: center; /* Centra horizontalmente las estrellas */
+    position: relative;    /* Base para posicionamiento interno si se necesita */
+}
+
+/* Escudo posicionado en la esquina superior izquierda del header */
+header .escudo-esquina {
+    position: absolute; /* Se saca del flujo normal y se ubica con top/left */
+    top: 15px;          /* Distancia desde la parte superior del header */
+    left: 15px;         /* Distancia desde el lado izquierdo */
+    width: 75px;        /* Tamaño del escudo */
+    z-index: 1100;      /* Por encima del header y la sección azul */
+}
+
+/* Estilo de cada fila de estrellas decorativas */
+.fila {
+    color: var(--segundocolor);         /* Estrellas en blanco sobre fondo azul */
+    font-size: 1.5rem;    /* Tamaño de las estrellas */
+    letter-spacing: 3px;  /* Separación entre estrellas de cada fila */
+    text-align: center;   /* Centra el contenido de cada fila */
+}
+
+/* Franja de rayas decorativas rojo y blanco */
+.seccion-rayas {
+    background: repeating-linear-gradient(
+        90deg,
+        var(--primercolor) 0 11.11%,   /* Franja roja: ocupa el 11.11% del ancho */
+        var(--segundocolor) 11.11% 22.22% /* Franja blanca: ocupa el siguiente 11.11% */
+    );
+    height: 100px;          /* Alto fijo de la franja */
+    display: flex;          /* Flexbox para centrar el título */
+    justify-content: center; /* Centra horizontalmente el contenedor del título */
+    position: relative;     /* Necesario para que el título flote con position: absolute */
+}
+
+/* Caja blanca con el título que flota sobre la franja de rayas */
+.contenedor-titulo {
+    background: var(--segundocolor);                          /* Fondo blanco sobre las rayas */
+    border: 3px solid var(--coloropcionalydeletras); /* Borde azul del club */
+    padding: 8px 15px;                          /* Espaciado interno del título */
+    position: absolute;                         /* Flota sobre la franja */
+    top: -25px;                                 /* Sube el cuadro para que sobresalga de la sección azul */
+    width: 85%;                                 /* Ancho relativo al contenedor */
+    max-width: 400px;                           /* Límite máximo de ancho */
+    text-align: center;                         /* Centra el texto del título */
+    ;
+}
+
+/* Estilo global para todos los h1 de la página */
+h1 {
+    margin: 0;                    /* Sin margen para evitar desbordamientos */
+    font-size: 1.5rem;            /* Tamaño del título */
+    color: var(--coloropcionalydeletras); /* Azul del club */
+    text-transform: uppercase;    /* Todo en mayúsculas */
+    font-family: var(--letra);
+    font-weight: 900;
+}
+
+/* Frase emblemática del club debajo del header */
+.firma {
+    color: var(--segundocolor);          /* Blanco sobre fondo azul del body */
+    text-align: center;   /* Centrada horizontalmente */
+    font-size: 1.6rem;    /* Tamaño destacado */
+    margin: 20px 0;       /* Separación vertical respecto al header y las tarjetas */
+    font-family: var(--letra);
+    font-weight: 900;
+}
+
+/* ===== GRID DE TARJETAS ===== */
+.Contenedor-principal {
+    display: grid;                          /* Activa el sistema de grid */
+    grid-template-columns: 1fr 1fr;         /* Dos columnas de igual ancho */
+    grid-template-rows: 360px 360px 360px;  /* Tres filas de 360px cada una */
+    gap: 14px;                              /* Separación entre tarjetas */
+    padding: 24px 16px 40px;               /* Espaciado interno: más abajo para separar del footer */
+    max-width: 960px;                       /* Ancho máximo del grid */
+    margin: 0 auto;                         /* Centra el grid horizontalmente */
+}
+
+/* La tarjeta del estadio ocupa toda la columna derecha (filas 1 a 3) */
+.card-flip.grande {
+    grid-column: 2;    /* Se ubica en la segunda columna */
+    grid-row: 1 / 4;   /* Abarca desde la fila 1 hasta la 3 inclusive */
+}
+
+/* ===== TARJETA FLIP BASE ===== */
+.card-flip {
+    cursor: pointer;    /* Cambia el cursor a mano para indicar que es clickeable */
+    width: 100%;        /* Ocupa todo el ancho de su celda en el grid */
+    height: 100%;       /* Ocupa toda la altura de su fila en el grid */
+    position: relative; /* Necesario para que frente y reverso se posicionen dentro */
+    border-radius: 10px; /* Bordes redondeados de la tarjeta */
+    overflow: hidden;   /* Oculta lo que salga de los bordes redondeados */
+}
+
+/* ===== FRENTE Y REVERSO: base compartida ===== */
+.card-front,
+.card-back {
+    position: absolute; /* Apilados uno encima del otro dentro de la tarjeta */
+    top: 0;             /* Pegado al borde superior */
+    left: 0;            /* Pegado al borde izquierdo */
+    width: 100%;        /* Cubre todo el ancho de la tarjeta */
+    height: 100%;       /* Cubre toda la altura de la tarjeta */
+    border-radius: 10px; /* Mantiene bordes redondeados en ambas caras */
+    overflow: hidden;   /* Evita que el contenido se desborde */
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Animación suave al voltear */
+}
+
+/* Frente: visible por defecto encima del reverso */
+.card-front {
+    background-size: cover;      /* La imagen de fondo cubre toda la tarjeta */
+    background-position: center; /* Centra la imagen de fondo */
+    background-color: var(--coloropcionalydeletras); /* Color de respaldo si la imagen no carga */
+    opacity: 1;          /* Completamente visible */
+    transform: scale(1); /* Tamaño normal */
+    z-index: 2;          /* Por encima del reverso */
+}
+
+/* Reverso: oculto por defecto debajo del frente */
+.card-back {
+    background-color: var(--segundocolor); /* Fondo blanco para el contenido del reverso */
+    display: flex;             /* Flexbox para organizar el contenido verticalmente */
+    flex-direction: column;    /* Apila título, lista y etiqueta en columna */
+    justify-content: flex-start; /* El contenido empieza desde arriba */
+    align-items: flex-start;   /* Alinea el contenido al lado izquierdo */
+    padding: 22px 20px;        /* Espaciado interno del reverso */
+    border: 3px solid var(--coloropcionalydeletras); /* Borde azul en los 4 lados */
+    border-top: 6px solid var(--primercolor);        /* Borde superior rojo más grueso como acento */
+    opacity: 0;           /* Invisible por defecto */
+    transform: scale(0.95); /* Ligeramente reducido para efecto de entrada */
+    z-index: 1;           /* Debajo del frente */
+    overflow-y: auto;     /* Scroll vertical si el contenido es más largo que la tarjeta */
+}
+
+/* ===== AJUSTES ESPECÍFICOS DEL REVERSO DEL ESTADIO ===== */
+.card-flip.grande .card-back {
+    justify-content: flex-start; /* Contenido anclado desde arriba */
+    padding: 22px 12px;          /* Padding lateral reducido por ser más angosto */
+}
+
+/* La etiqueta del estadio no necesita margin-top: auto porque la imagen ya llena el espacio */
+.card-flip.grande .card-tag {
+    margin-top: 0;
+}
+
+/* Párrafos del reverso del estadio más compactos para dejar espacio a la imagen */
+.card-flip.grande .card-back p {
+    margin: 0 0 6px;    /* Menos margen inferior que el global */
+    line-height: 1.5;   /* Interlineado levemente reducido */
+    flex-shrink: 0;     /* Impide que los párrafos se compriman cuando la imagen crece */
+}
+
+/* Wrapper de la imagen: crece para ocupar el espacio libre entre el texto y la etiqueta */
+.card-flip.grande .card-back-img-wrapper {
+    flex: 1 1 auto;     /* Crece y encoge libremente para llenar el espacio disponible */
+    min-height: 180px;  /* Altura mínima garantizada para la imagen */
+    margin: 10px 0 12px; /* Separación respecto al texto y la etiqueta */
+    width: 100%;        /* Ocupa todo el ancho del reverso */
+    background-color: transparent; /* Sin fondo extra, la imagen lo cubre */
+}
+
+/* Imagen dentro del wrapper: se adapta al alto del contenedor */
+.card-flip.grande .card-back-img {
+    width: 100%;                    /* Ancho completo del wrapper */
+    height: calc(100% - 26px);      /* Descuenta los 26px del caption para no desbordarse */
+    object-fit: cover;              /* Recorta la imagen para que llene el espacio */
+    object-position: center 40%;    /* Centra el recorte ligeramente hacia abajo */
+}
+
+/* ===== ESTADO VOLTEADA: frente se oculta, reverso aparece ===== */
+.card-flip.flipped .card-front {
+    opacity: 0;           /* Se vuelve invisible */
+    transform: scale(0.95); /* Se reduce levemente al desaparecer */
+    z-index: 1;           /* Queda debajo del reverso */
+}
+
+.card-flip.flipped .card-back {
+    opacity: 1;           /* Se vuelve completamente visible */
+    transform: scale(1);  /* Vuelve a su tamaño normal */
+    z-index: 2;           /* Queda por encima del frente */
+}
+
+/* ===== OVERLAY DEL FRENTE ===== */
+.card-overlay {
+    position: absolute; /* Cubre toda la tarjeta sobre la imagen */
+    inset: 0;           /* Equivale a top/right/bottom/left: 0 */
+    display: flex;      /* Flexbox para organizar ícono, título y hint */
+    flex-direction: column; /* Los elementos se apilan verticalmente */
+    justify-content: flex-end; /* Todo el contenido se ancla al fondo de la tarjeta */
+    padding: 18px;      /* Espaciado interno del overlay */
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.82) 0%,   /* Negro casi sólido en la parte baja para legibilidad del texto */
+        rgba(0,0,0,0.3) 50%,   /* Semitransparente en el centro */
+        transparent 100%        /* Completamente transparente arriba para ver la imagen */
+    );
+}
+
+/* Ícono representativo de cada tarjeta */
+.card-icon {
+    font-size: 2.4rem;   /* Tamaño grande y visible */
+    margin-bottom: 6px;  /* Separación respecto al título */
+}
+
+/* Título de la tarjeta en el frente */
+.card-title {
+    font-size: 1.3rem;  /* Tamaño destacado, !important evita herencias no deseadas */
+    color: var(--segundocolor);        /* Blanco para contrastar con el gradiente oscuro */
+    margin: 4px 0 0 ;   /* Pequeño margen superior respecto al ícono */
+    letter-spacing: 3px;          /* Letras espaciadas para estilo deportivo */
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8); /* Sombra para mayor legibilidad sobre imágenes claras */
+    font-family: var(--letra);
+    font-weight: 900;
+}
+
+/* Texto de indicación de interacción */
+.hint {
+    font-size: 0.65rem;              /* Texto muy pequeño, secundario */
+    color: rgba(255,255,255,0.65);   /* Blanco semitransparente para no competir con el título */
+    margin: 4px 0 0;                 /* Pequeña separación respecto al título */
+    letter-spacing: 1.5px;           /* Espaciado para mantener el estilo general */
+    text-transform: uppercase;        /* En mayúsculas */
+}
+
+/* Frente de trofeos sin imagen sólida: usa gradiente rojo */
+.trofeos-front {
+    background-image: linear-gradient(135deg, #8B0000 0%, #cc0000 40%, #ed1c24 100%);
+    /* Gradiente en diagonal de rojo oscuro a rojo del club */
+}
+
+/* Frente de historia sin imagen sólida: usa gradiente azul */
+.historia-front {
+    background-image: linear-gradient(135deg, #003366 0%, #004f99 50%, #0066cc 100%);
+    /* Gradiente en diagonal de azul oscuro a azul claro */
+}
+
+/* ===== ESTILOS DEL REVERSO ===== */
+
+/* Título del reverso con línea roja inferior */
+.card-back h2 {
+    font-size: 1.05rem ;              /* Tamaño moderado para el reverso */
+    color: var(--coloropcionalydeletras) ; /* Azul del club */
+    letter-spacing: 2px;                        /* Espaciado de letras */
+    margin: 0 0 12px ;                /* Separación inferior respecto a la lista */
+    padding-bottom: 10px;                       /* Espacio entre el texto y la línea */
+    border-bottom: 3px solid var(--primercolor); /* Línea roja decorativa bajo el título */
+    width: 100%;                                /* Ocupa todo el ancho del reverso */
+    text-align: left;                           /* Alineado a la izquierda */
+    flex-shrink: 0;                             /* No se comprime si el contenido es largo */
+    font-family: var(--letra);
+    font-weight: 900;
+}
+
+/* Párrafos dentro del reverso */
+.card-back p {
+    font-size: 0.82rem;       /* Texto pequeño para caber en la tarjeta */
+    color: #222;              /* Casi negro para buena legibilidad sobre fondo blanco */
+    line-height: 1.65;        /* Interlineado cómodo para lectura *
+    margin: 0 0 10px;         /* Separación entre párrafos */
+    font-family: var(--letra);
+    font-weight: 900;
+}
+
+/* Lista del reverso sin viñetas */
+.lista-back {
+    list-style: none; /* Elimina los puntos o números por defecto */
+    padding: 0;       /* Sin indentación */
+    margin: 0 0 14px; /* Separación inferior respecto a la etiqueta */
+    width: 100%;      /* Ocupa todo el ancho disponible */
+    font-family: var(--letra);
+    font-weight: 900;
+}
+
+/* Cada ítem de la lista */
+.lista-back li {
+    font-size: 0.78rem;       /* Texto pequeño para que quepan varios ítems */
+    color: #222;              /* Casi negro */   
+    padding: 5px 0;           /* Espaciado vertical entre ítems */
+    border-bottom: 1px solid rgba(0,51,102,0.12); /* Línea separadora sutil en azul muy transparente */
+    line-height: 1.4;         /* Interlineado ajustado */
+    font-family: var(--letra);
+    font-weight: 900;
+
+}
+
+/* Etiqueta decorativa al pie del reverso */
+.card-tag {
+    font-size: 0.62rem;              /* Texto muy pequeño */
+    letter-spacing: 3px;             /* Letras muy espaciadas para estilo de badge */
+    color: var(--segundocolor);      /* Texto blanco */
+    background-color: var(--primercolor); /* Fondo rojo del club */
+    padding: 5px 12px;               /* Espaciado interno de la etiqueta */
+    border-radius: 2px;              /* Bordes ligeramente redondeados */
+    font-family: var(--letra);
+    font-weight: bold;               /* Negrita */
+    margin-top: auto;                /* Empuja la etiqueta al fondo del flex container */
+    flex-shrink: 0;                  /* No se comprime si hay mucho contenido */
+}
+
+/* Imagen de portada de cada tarjeta */
+.card-img {
+    position: absolute; /* Se posiciona respecto a card-front */
+    top: 0;             /* Pegada al borde superior */
+    left: 0;            /* Pegada al borde izquierdo */
+    width: 100%;        /* Cubre todo el ancho */
+    height: 100%;       /* Cubre toda la altura */
+    object-fit: cover;  /* Recorta la imagen para llenar sin deformar */
+    object-position: center; /* El recorte se centra en la imagen */
+    z-index: 0;         /* Detrás del overlay */
+    display: block;     /* Elimina espacio extra bajo la imagen */
+}
+
+/* Variante de imagen que no recorta sino que muestra completa */
+.card-img-contain {
+    object-fit: contain;  /* Muestra la imagen completa sin recortar */
+    padding: 20px;        /* Espacio alrededor para que no toque los bordes */
+    background-color: var(--coloropcionalydeletras); /* Fondo azul en las áreas vacías */
+}
+
+/* ===== IMAGEN DECORATIVA EN EL REVERSO DEL ESTADIO ===== */
+
+/* Contenedor de la imagen con borde rojo */
+.card-back-img-wrapper {
+    width: 100%;                           /* Ocupa todo el ancho del reverso */
+    margin: 8px 0 12px;                    /* Separación respecto al texto arriba y la etiqueta abajo */
+    border-radius: 6px;                    /* Bordes redondeados del contenedor */
+    overflow: hidden;                      /* Oculta lo que salga del border-radius */
+    border: 2px solid var(--primercolor);  /* Borde rojo decorativo */
+    flex-shrink: 0;                        /* No se comprime en el flex container */
+}
+
+/* Imagen dentro del wrapper */
+.card-back-img {
+    width: 100%;                 /* Ocupa todo el ancho del wrapper */
+    height: 180px;               /* Alto fijo base (se sobreescribe en .grande) */
+    object-fit: cover;           /* Recorta para llenar sin deformar */
+    object-position: center 30%; /* El recorte se enfoca en la parte superior de la imagen */
+    display: block;              /* Elimina espacio extra bajo la imagen */
+}
+
+/* Pie de foto de la imagen */
+.card-back-img-caption {
+    display: block;                      /* Ocupa su propia línea */
+    font-size: 0.58rem;                  /* Texto muy pequeño */
+    color: #555;                         /* Gris medio */
+    font-family: Georgia, serif;         /* Tipografía serif */
+    letter-spacing: 0.8px;              /* Leve espaciado */
+    text-align: center;                  /* Centrado bajo la imagen */
+    padding: 5px 8px;                    /* Espaciado interno */
+    background-color: rgba(0,0,0,0.04); /* Fondo gris muy sutil */
+}
+
+/* ===== ASIDE ===== */
+
+/* Contenedor de datos curiosos con fondo blanco */
+.aside-curiosidades {
+    max-width: 960px;                        /* Mismo ancho máximo que el grid de tarjetas */
+    margin: 0 auto;                          /* Centrado horizontalmente */
+    padding: 24px 16px;                      /* Espaciado interno */
+    background-color: var(--segundocolor);   /* Fondo blanco que contrasta con el azul del body */
+    border-top: 3px solid var(--primercolor); /* Línea roja superior como separador visual */
+}
+
+/* Título del aside */
+.aside-titulo {
+    font-size: 0.9rem !important;                   /* Tamaño moderado */
+    color: var(--coloropcionalydeletras) !important; /* Azul del club */
+    letter-spacing: 3px;                            /* Letras espaciadas */
+    margin: 0 0 16px !important;                    /* Separación inferior respecto a la lista */
+}
+
+/* Lista de curiosidades sin viñetas */
+.aside-lista {
+    list-style: none; /* Elimina los puntos por defecto */
+    padding: 0;       /* Sin indentación */
+    margin: 0;        /* Sin margen */
+    font-family: var(--letra);
+}
+
+/* Cada ítem de curiosidad */
+.aside-lista li {
+    font-size: 0.82rem;       /* Texto pequeño */
+    color: #222;              /* Casi negro sobre fondo blanco */
+    font-weight: 900;
+    font-family: var(--letra);
+    line-height: 1.6;         /* Interlineado cómodo */
+    padding: 8px 0;           /* Espaciado vertical entre ítems */
+    border-bottom: 1px solid rgba(0,51,102,0.12); /* Línea separadora sutil */
+}
+
+/* Elimina la línea del último ítem para no tener doble borde con el footer */
+.aside-lista li:last-child {
+    border-bottom: none;
+}
+
+/* Texto destacado dentro de cada curiosidad */
+.aside-lista strong {
+    color: var(--primercolor); /* Rojo del club para resaltar datos clave */
+    font-weight: 900;
+    font-family: var(--letra)
+
+}
+
+/* ===== FOOTER ===== */
+
+/* Pie de página azul pegado al fondo */
+.footer-principal {
+    margin-top: auto;                            /* Empuja el footer al fondo cuando el contenido es corto */
+    width: 100%;                                 /* Ocupa todo el ancho de la pantalla */
+    background-color: var(--coloropcionalydeletras); /* Fondo azul oscuro del club */
+    border-top: 4px solid var(--primercolor);    /* Línea roja superior como acento */
+    padding: 24px 16px;                          /* Espaciado interno */
+    text-align: center;                          /* Todo el contenido centrado */
+    display: flex;                               /* Flexbox para organizar los elementos */
+    flex-direction: column;                      /* Apila párrafo, redes y créditos verticalmente */
+    align-items: center;                         /* Centra horizontalmente cada elemento */
+    gap: 10px;                                   /* Separación uniforme entre elementos */
+}
+
+/* Texto principal del footer */
+.footer-principal p {
+    font-size: 0.82rem;              /* Tamaño moderado */
+    font-family: var(--letra);       /* Tipografía Oswald */
+    color: rgba(255,255,255,0.8);    /* Blanco con leve transparencia */
+    margin: 0;                       /* Sin margen extra, el gap del flex lo maneja */
+    letter-spacing: 1px;             /* Leve espaciado */
+    font-family: var(--letra);
+}
+
+/* Contenedor de los enlaces de redes sociales */
+.footer-redes {
+    display: flex;           /* Coloca los enlaces en fila */
+    gap: 20px;               /* Separación entre cada enlace */
+    flex-wrap: wrap;         /* Si no caben en una línea, se van a la siguiente */
+    justify-content: center; /* Centra los enlaces horizontalmente */
+}
+
+/* Cada enlace de red social */
+.footer-redes a {
+    font-size: 0.78rem;              /* Texto pequeño */
+    font-family: Georgia, serif;     /* Tipografía serif para contraste */
+    color: rgba(255,255,255,0.6);    /* Blanco semitransparente */
+    text-decoration: none;           /* Sin subrayado */
+    transition: color 0.2s ease;     /* Transición suave al hacer hover */
+}
+
+/* Estado hover de los enlaces */
+.footer-redes a:hover {
+    color: var(--primercolor); /* Cambia a rojo al pasar el cursor */
+}
+
+/* Línea de créditos al pie */
+.footer-copy {
+    font-size: 0.6rem;               /* Texto muy pequeño, secundario */
+    color: rgba(255,255,255,0.3);    /* Blanco muy transparente para no distraer */
+    letter-spacing: 2px;             /* Letras espaciadas */
+    font-family: var(--letra);      
+    margin: 0;                       /* Sin margen extra */
+    text-transform: uppercase;        /* Todo en mayúsculas */
+}

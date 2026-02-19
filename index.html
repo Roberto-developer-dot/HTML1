@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HTML</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<header> <!-- Cabecera principal de la página -->
+     
+  <!-- Escudo del club | class="escudo-esquina": lo posiciona en la esquina superior izquierda -->
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/ESCUDO_JUNIOR.svg/1280px-ESCUDO_JUNIOR.svg.png" alt="Escudo" class="escudo-esquina"/>
+  
+  <!-- class="seccion-azul": bloque con fondo azul oscuro del club -->
+  <div class="seccion-azul">
+    <!-- class="grupo-estrellas": centra y apila las filas de estrellas en pirámide -->
+    <div class="grupo-estrellas">
+      <div class="fila">★</div>              <!-- class="fila": estilo de color y espaciado para cada fila -->
+      <div class="fila">★ ★ ★</div>
+      <div class="fila">★ ★ ★ ★ ★ ★ ★</div>
+    </div>
+  </div>
+
+  <!-- class="seccion-rayas": franja decorativa con rayas rojo y blanco -->
+  <div class="seccion-rayas">
+    <!-- class="contenedor-titulo": caja blanca con borde azul que flota sobre la franja -->
+    <div class="contenedor-titulo">
+      <h1>JUNIOR DE BARRANQUILLA</h1> <!-- Título principal del club -->
+    </div>
+  </div>
+
+</header>
+
+<main> <!-- Zona de contenido principal -->
+  
+  <!-- class="firma": frase emblemática centrada, color blanco sobre fondo azul -->
+  <h1 class="firma">"Mas que un equipo, un sentimiento"</h1>
+  
+  <!-- class="Contenedor-principal": grid de 2 columnas y 3 filas para las tarjetas -->
+      <section class="Contenedor-principal">
+
+    <!-- ===== TARJETA ÍDOLOS ===== -->
+    <!-- class="card-flip": tarjeta interactiva que voltea al hacer clic -->
+        <article class="card-flip">
+      <!-- class="card-inner": contenedor interno que sostiene frente y reverso apilados -->
+          <div class="card-inner">
+
+        <!-- class="card-front": cara visible por defecto, contiene imagen y overlay -->
+            <div class="card-front">
+          <!-- class="card-img": imagen que cubre toda la tarjeta con object-fit: cover -->
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPqGbnTXDHZ5P_XJLkAtVzEeJ88P9Fqac6g_voM-bkvR4zAfQYhbz1IFP5&s=10"
+                alt="Ídolos Junior"
+                class="card-img"
+                />
+              <!-- class="card-overlay": gradiente oscuro sobre la imagen para que el texto sea legible -->
+              <div class="card-overlay">
+                <span class="card-icon">⭐</span> <!-- class="card-icon": ícono grande representativo de la sección -->
+                <h2 class="card-title">ÍDOLOS</h2> <!-- class="card-title": título en blanco con letra espaciada -->
+                <p class="hint">Toca para ver más</p> <!-- class="hint": texto pequeño que indica interacción -->
+              </div>
+            </div>
+
+        <!-- class="card-back": cara oculta por defecto, aparece al voltear la tarjeta -->
+            <div class="card-back">
+              <h2>ÍDOLOS DEL TIBURÓN</h2> <!-- Título del reverso con línea roja inferior -->
+          <!-- class="lista-back": lista sin viñetas con separadores entre cada jugador -->
+              <ul class="lista-back">
+                <li>🦈 <strong>Carlos Valderrama</strong> — El Pibe, el jugador más emblemático de la historia del Junior y referente mundial del fútbol colombiano</li>
+                <li>🦈 <strong>Iván René Valenciano</strong> — El Bombardero, máximo goleador histórico del club, terror de los porteros en los 90</li>
+                <li>🦈 <strong>Carlos Bacca</strong> — Bicampeón con Junior antes de triunfar en Europa con Sevilla y AC Milan</li>
+                <li>🦈 <strong>Teófilo Gutiérrez</strong> — Teo, goleador de raza y alma rojiblanca, ídolo de la hinchada más fiel</li>
+                <li>🦈 <strong>Víctor Danilo Pacheco</strong> — Motor incansable del mediocampo durante más de una década en el club</li>
+                <li>🦈 <strong>Giovanni Hernandez</strong> — Cerebro brillante y conductor elegante del mediocampo durante años en el club</li>
+              </ul>
+          <!-- class="card-tag": etiqueta roja pegada al fondo del reverso con margin-top: auto -->
+              <span class="card-tag">LEYENDAS</span>
+            </div>
+
+          </div>
+        </article>
+
+    <!-- ===== TARJETA ESTADIO ===== -->
+    <!-- class="card-flip grande": "grande" hace que ocupe las 3 filas del grid en la columna derecha -->
+        <article class="card-flip grande">
+          <div class="card-inner">
+
+            <div class="card-front">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy5cF_-K04f5Y5IlZI-e-6ojvqzLgC55OrjVy6hy-7ww&s=10"
+                alt="Estadio Metropolitano"
+                class="card-img"
+              />
+              <div class="card-overlay">
+                <span class="card-icon">🏟️</span>
+              <h2 class="card-title">ESTADIO</h2>
+                <p class="hint">Toca para ver más</p>
+              </div>
+            </div>
+
+            <div class="card-back">
+              <h2>ESTADIO METROPOLITANO</h2>
+              <p>El <strong>Estadio Metropolitano Roberto Meléndez</strong> fue inaugurado el <strong>11 de mayo de 1986</strong> y tiene capacidad para más de <strong>46.000 espectadores</strong>, siendo uno de los recintos deportivos más grandes e importantes de Colombia.</p>
+              <p>Es la sede oficial de la <strong>Selección Colombia</strong> para las eliminatorias mundialistas. El calor caribeño, la altitud cero y la fuerza de su hinchada lo convierten en un fortín prácticamente inexpugnable para los visitantes.</p>
+              <p>El estadio lleva el nombre de <strong>Roberto Meléndez</strong>, destacado dirigente deportivo barranquillero que impulsó el deporte en la región durante décadas.</p>
+              <p>Su atmósfera única mezcla la pasión rojiblanca con el ritmo y la identidad cultural de Barranquilla, haciendo de cada partido local una verdadera fiesta caribeña.</p>
+          <!-- class="card-back-img-wrapper": contenedor con borde rojo que crece para llenar el espacio libre -->
+              <div class="card-back-img-wrapper">
+            <!-- class="card-back-img": imagen que se adapta al alto del wrapper con object-fit: cover -->
+                <img
+                  src="https://cdn.colombia.com/sdi/2023/05/19/se-alista-una-remodelacion-del-metropolitano-de-barranquilla-1148918-1.jpg"
+                  alt="Vista aérea Estadio Metropolitano"
+                  class="card-back-img"
+                />
+            <!-- class="card-back-img-caption": pie de foto con fondo gris suave y texto pequeño -->
+                <span class="card-back-img-caption">Vista aérea — Estadio Metropolitano Roberto Meléndez</span>
+              </div>
+              <span class="card-tag">NUESTRA CASA</span>
+            </div>
+
+          </div>
+        </article>
+
+    <!-- ===== TARJETA TROFEOS ===== -->
+        <article class="card-flip">
+          <div class="card-inner">
+
+        <!-- class="trofeos-front": aplica gradiente rojo al fondo en lugar de depender solo de la imagen -->
+            <div class="card-front trofeos-front">
+          <!-- class="card-img-contain": usa object-fit: contain para que el trofeo no se recorte -->
+              <img
+                src="https://pbs.twimg.com/media/DuyfWxQWkAc-FTi.jpg"
+                alt="Trofeos Junior"
+                class="card-img card-img-contain"
+              />
+              <div class="card-overlay">
+                <span class="card-icon">🏆</span>
+                <h2 class="card-title">PALMARÉS</h2>
+              <p class="hint">Toca para ver más</p>
+              </div>
+            </div>
+
+            <div class="card-back">
+              <h2>TÍTULOS GANADOS</h2>
+              <ul class="lista-back">
+                <li>🏆 <strong>11 Ligas Colombianas</strong> — El club más laureado de la Costa Atlántica</li>
+                <li>🏆 <strong>2 Copas Colombia</strong> — Campeón en 2017 y 2019</li>
+                <li>🏆 <strong>2 Superligas</strong> — Dominio en el fútbol nacional reciente</li>
+                <li>🌎 <strong>Copa Merconorte 2000</strong> — Primer y único título internacional del club</li>
+                <li>🌎 <strong>Semifinalista Copa Libertadores 1994</strong> — La actuación internacional más memorable</li>
+                <li>🌎 <strong>Subcampeón Merconorte 1998</strong> — Presencia constante en torneos CONMEBOL</li>
+              </ul>
+              <span class="card-tag">CAMPEONES</span>
+                </div>
+          </div>
+        </article>
+
+    <!-- ===== TARJETA HISTORIA ===== -->
+        <article class="card-flip">
+          <div class="card-inner">
+
+        <!-- class="historia-front": aplica gradiente azul al fondo -->
+            <div class="card-front historia-front">
+              <img
+               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjDsnljbYXhIi9clEYpAIRj283QY5Rk01fjSBGlrr2zN2rFcXUW7qvKXQ&s=10"
+                alt="Barranquilla"
+                class="card-img"
+              />
+              <div class="card-overlay">
+                <span class="card-icon">📖</span>
+                <h2 class="card-title">HISTORIA</h2>
+                <p class="hint">Toca para ver más</p>
+              </div>
+            </div>
+
+            <div class="card-back">
+              <h2>DESDE 1924</h2>
+              <p>Fundado el <strong>8 de agosto de 1924</strong> en el humilde barrio <strong>Rebolo</strong> de Barranquilla, el Junior nació como un club de barrio y creció hasta convertirse en el equipo más representativo de la Costa Atlántica colombiana.</p>
+              <p>Sus colores <strong>rojo y blanco</strong> simbolizan la pasión y la identidad de toda una región. El apodo <em>"Tiburón"</em> refleja la ferocidad y el hambre de triunfo que caracterizan al club desde sus orígenes.</p>
+              <p>A lo largo de más de <strong>100 años de historia</strong>, Junior ha sido cuna de grandes figuras que brillaron en Colombia y en el mundo, consolidándose como uno de los clubes más queridos e importantes del fútbol sudamericano.</p>
+              <span class="card-tag">LEGADO CENTENARIO</span>
+            </div>
+          </div>
+        </article>
+      </section>
+</main>
+
+<!-- class="aside-curiosidades": sección de datos curiosos con fondo blanco debajo del main -->
+    <aside class="aside-curiosidades">
+  <!-- class="aside-titulo": título en azul del club con letra espaciada -->
+      <h2 class="aside-titulo">🦈 ¿SABÍAS QUE...?</h2>
+  <!-- class="aside-lista": lista sin viñetas, cada ítem separado por línea sutil -->
+      <ul class="aside-lista">
+        <li>📅 Junior es el club de fútbol <strong>más antiguo de Colombia</strong> en competencia continua, fundado en 1924.</li>
+        <li>🌍 El apodo <strong>"Tiburón"</strong> nació porque el equipo era temido y devoraba rivales como un tiburón en el mar Caribe.</li>
+        <li>⭐ <strong>Carlos Valderrama</strong>, elegido el mejor jugador sudamericano del siglo XX, desarrolló gran parte de su carrera en Junior.</li>
+        <li>🏟️ El Estadio Metropolitano fue sede de la <strong>Copa América 2001</strong> y eliminatorias mundialistas.</li>
+        <li>🎨 Los colores <strong>rojo y blanco</strong> fueron adoptados en honor a los colores de la bandera de Barranquilla.</li>
+        <li>🏆 En <strong>1993 y 1994</strong> Junior logró dos títulos consecutivos, una época dorada que marcó generaciones.</li>
+      </ul>
+    </aside>
+
+<!-- class="footer-principal": pie de página azul empujado al fondo con margin-top: auto -->
+    <footer class="footer-principal">
+      <p>🦈 <strong>Junior de Barranquilla</strong> · Fundado en 1924</p>
+  <!-- class="footer-redes": contenedor flex que alinea los enlaces de redes en fila -->
+      <div class="footer-redes">
+        <a href="https://www.instagram.com/juniorfcoficial" target="_blank">📸 Instagram</a> <!-- target="_blank": abre en pestaña nueva -->
+        <a href="https://www.facebook.com/JuniorFC" target="_blank">📘 Facebook</a>
+        <a href="https://twitter.com/JuniorClubSA" target="_blank">🐦 Twitter</a>
+        <a href="https://www.youtube.com/@JuniorFC" target="_blank">▶️ YouTube</a>
+      </div>
+  <!-- class="footer-copy": texto de créditos con opacidad reducida -->
+      <p class="footer-copy">© 2026 · Taller SENA — Junior de Barranquilla</p>
+</footer>
+  
+  <!-- Project -->
+  <script src="main.js"></script>
+  
+</body>
+</html>
